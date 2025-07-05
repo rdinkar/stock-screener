@@ -9,6 +9,7 @@ import {
 import { Menu } from "antd";
 import Dashboard from "./components/Dashboard";
 import StockDetail from "./components/StockDetail";
+import Watchlist from "./components/Watchlist";
 import {
   DashboardOutlined,
   SearchOutlined,
@@ -19,9 +20,6 @@ import "./App.css";
 
 function Screener() {
   return <h2>Stock Screener Page</h2>;
-}
-function Watchlist() {
-  return <h2>Watchlist Management Page</h2>;
 }
 
 function Navigation() {

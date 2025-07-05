@@ -23,6 +23,18 @@
   padding: 15px;
 }
 
+.gap-sm {
+  gap: 5px;
+}
+
+.gap-md {
+  gap: 10px;
+}
+
+.gap-lg {
+  gap: 15px;
+}
+
 .bg-1 {
   background-color: #001529;
 }
@@ -33,4 +45,12 @@
 
 .over-auto {
   overflow: auto;
+}
+
+.space-bw {
+  justify-content: space-between;
+}
+
+.align-center {
+  align-items: center;
 }
