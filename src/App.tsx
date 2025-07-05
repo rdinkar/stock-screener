@@ -10,6 +10,7 @@ import { Menu } from "antd";
 import Dashboard from "./components/Dashboard";
 import StockDetail from "./components/StockDetail";
 import Watchlist from "./components/Watchlist";
+import Screener from "./components/Screener";
 import {
   DashboardOutlined,
   SearchOutlined,
@@ -17,10 +18,6 @@ import {
 } from "@ant-design/icons";
 import "antd/dist/reset.css";
 import "./App.css";
-
-function Screener() {
-  return <h2>Stock Screener Page</h2>;
-}
 
 function Navigation() {
   const location = useLocation();

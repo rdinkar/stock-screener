@@ -349,3 +349,95 @@
     font-size: 0.95rem;
   }
 }
+
+/* --- Stock Screener Page Styles --- */
+.screener-container {
+  padding: 24px;
+  background: #f5f5f5;
+  flex: 1;
+  height: 100%;
+  overflow: auto;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.screener-filters {
+  background: #fff;
+  border-radius: 8px;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.04);
+  padding: 20px 20px 12px 20px;
+  margin-bottom: 12px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.screener-filters-row {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 12px;
+  flex-wrap: wrap;
+}
+
+.screener-filter-row {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 8px;
+  flex-wrap: wrap;
+}
+
+.screener-table {
+  background: #fff;
+  border-radius: 8px;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.04);
+  padding: 16px 8px 8px 8px;
+  min-width: 0;
+}
+
+.ag-theme-alpine {
+  border-radius: 8px;
+  border: none;
+  font-size: 1rem;
+}
+
+@media (max-width: 900px) {
+  .screener-container {
+    padding: 12px;
+    gap: 12px;
+  }
+  .screener-filters {
+    padding: 12px 8px 8px 8px;
+    gap: 8px;
+  }
+  .screener-table {
+    padding: 8px 2px 2px 2px;
+  }
+}
+
+/* --- Screener Presets and Table Header Styles --- */
+.screener-presets-row {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 16px;
+  flex-wrap: wrap;
+}
+.screener-presets-label {
+  font-weight: 600;
+  margin-right: 8px;
+}
+.screener-table-header-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 8px;
+  gap: 12px;
+}
+.screener-table-title {
+  font-size: 1.1rem;
+  font-weight: 600;
+}
