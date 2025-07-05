@@ -35,7 +35,7 @@ function Navigation() {
           ? "/stock/:id"
           : location.pathname,
       ]}
-      style={{ height: "100%", borderRight: 0 }}
+      style={{ height: "calc(100% - 64px)", borderRight: 0 }}
     >
       <Menu.Item key="/dashboard" icon={<DashboardOutlined />}>
         <Link to="/dashboard">Dashboard</Link>
