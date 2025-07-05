@@ -13,6 +13,17 @@ import { DownloadOutlined, SaveOutlined } from "@ant-design/icons";
 import mockData from "../assets/mock-data-json.json";
 import "./dashboard-helper.css";
 import { useNavigate } from "react-router-dom";
+import { useSelector, useDispatch } from "react-redux";
+import type { RootState, AppDispatch } from "../store";
+import {
+  addFilter,
+  updateFilter as updateFilterAction,
+  removeFilter as removeFilterAction,
+  saveConfig,
+  loadConfig,
+  loadPreset,
+  setSelectedPreset,
+} from "../features/screenerSlice";
 
 const metrics = mockData.screener_presets.availableMetrics;
 const presets = mockData.screener_presets.presets;
@@ -28,7 +39,7 @@ const operators = [
 
 function applyFilters(
   stocks: typeof mockData.stocks,
-  filters: Filter[]
+  filters: { metric: string; operator: string; value: number | undefined }[]
 ): typeof mockData.stocks {
   return stocks.filter((stock) =>
     filters.every((f) => {
@@ -54,19 +65,19 @@ function applyFilters(
   );
 }
 
-const defaultFilters = [{ metric: "", operator: ">=", value: undefined }];
-
-type Filter = { metric: string; operator: string; value: number | undefined };
-type SavedConfig = { name: string; filters: Filter[] };
-
 const Screener: React.FC = () => {
-  const [filters, setFilters] = useState<Filter[]>(defaultFilters);
+  const dispatch = useDispatch<AppDispatch>();
+  const filters = useSelector((state: RootState) => state.screener.filters);
+  const savedConfigs = useSelector(
+    (state: RootState) => state.screener.savedConfigs
+  );
+  const selectedPreset = useSelector(
+    (state: RootState) => state.screener.selectedPreset
+  );
 
-  const [savedConfigs, setSavedConfigs] = useState<SavedConfig[]>([]);
   const [selectedSavedConfig, setSelectedSavedConfig] = useState<
     string | undefined
   >(undefined);
-
   const [saveModalOpen, setSaveModalOpen] = useState(false);
   const [saveModalName, setSaveModalName] = useState("");
 
@@ -146,15 +157,10 @@ const Screener: React.FC = () => {
 
   // Preset load
   const handlePreset = (id: number | undefined) => {
-    const preset = presets.find((p) => p.id === id);
-    if (preset) {
-      setFilters(
-        preset.criteria.map((c) => ({
-          metric: c.metric,
-          operator: c.operator,
-          value: c.value,
-        }))
-      );
+    if (id !== undefined) {
+      dispatch(loadPreset(id));
+      dispatch(setSelectedPreset(id));
+      setSelectedSavedConfig(undefined);
     }
   };
 
@@ -166,20 +172,20 @@ const Screener: React.FC = () => {
 
   const handleSaveModalOk = () => {
     if (!saveModalName.trim()) return message.error("Name required");
-    setSavedConfigs([
-      ...savedConfigs,
-      { name: saveModalName, filters: JSON.parse(JSON.stringify(filters)) },
-    ]);
+    dispatch(saveConfig(saveModalName));
     setSaveModalOpen(false);
     message.success("Filter saved!");
   };
 
   // Load config
-  const handleLoad = (name: string | undefined) => {
-    setSelectedSavedConfig(name);
-    if (!name) return;
-    const config = savedConfigs.find((c) => c.name === name);
-    if (config) setFilters(JSON.parse(JSON.stringify(config.filters)));
+  const handleLoad = (name: string | number | undefined) => {
+    if (typeof name === "string") {
+      setSelectedSavedConfig(name);
+      dispatch(loadConfig(name));
+      dispatch(setSelectedPreset(undefined));
+    } else {
+      setSelectedSavedConfig(undefined);
+    }
   };
 
   // Export CSV
@@ -202,17 +208,14 @@ const Screener: React.FC = () => {
   // Filter UI
   const updateFilter = (
     idx: number,
-    key: keyof Filter,
+    key: "metric" | "operator" | "value",
     value: string | number | undefined
   ) => {
-    setFilters((f) =>
-      f.map((filt, i) => (i === idx ? { ...filt, [key]: value } : filt))
-    );
+    dispatch(updateFilterAction({ idx, key, value }));
   };
-  const addFilter = () =>
-    setFilters((f) => [...f, { metric: "", operator: ">=", value: undefined }]);
-  const removeFilter = (idx: number) =>
-    setFilters((f) => (f.length > 1 ? f.filter((_, i) => i !== idx) : f));
+  const addFilterHandler = () => dispatch(addFilter());
+  const removeFilterHandler = (idx: number) =>
+    dispatch(removeFilterAction(idx));
 
   return (
     <div className="screener-container">
@@ -223,7 +226,7 @@ const Screener: React.FC = () => {
             {presets.map((p) => (
               <Button
                 key={p.id}
-                type={"default"}
+                type={selectedPreset === p.id ? "primary" : "default"}
                 size="small"
                 onClick={() => handlePreset(p.id)}
               >
@@ -235,15 +238,13 @@ const Screener: React.FC = () => {
           <Select
             style={{ width: 180, marginRight: 12 }}
             placeholder="Load Saved"
-            value={
-              selectedSavedConfig === null ? undefined : selectedSavedConfig
-            }
-            onChange={(v) => handleLoad(v === null ? undefined : v)}
+            value={selectedSavedConfig}
+            onChange={handleLoad}
             allowClear
             size="small"
           >
             {savedConfigs.map((c) => (
-              <Select.Option key={c.name} value={c.name}>
+              <Select.Option key={c.name} value={String(c.name)}>
                 {c.name}
               </Select.Option>
             ))}
@@ -282,14 +283,13 @@ const Screener: React.FC = () => {
             <InputNumber
               style={{ width: 120, marginRight: 8 }}
               value={f.value}
-              // @ts-expect-error - TODO: fix this
               onChange={(v) => updateFilter(idx, "value", v)}
               placeholder="Value"
               size="small"
             />
             <Button
               danger
-              onClick={() => removeFilter(idx)}
+              onClick={() => removeFilterHandler(idx)}
               disabled={filters.length === 1}
               size="small"
             >
@@ -299,7 +299,7 @@ const Screener: React.FC = () => {
         ))}
         <Button
           type="dashed"
-          onClick={addFilter}
+          onClick={addFilterHandler}
           style={{ marginTop: 8 }}
           size="small"
         >

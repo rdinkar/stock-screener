@@ -26,12 +26,18 @@ import "./dashboard-helper.css";
 import type { DragEndEvent } from "@dnd-kit/core";
 import type { SyntheticListenerMap } from "@dnd-kit/core/dist/hooks/utilities";
 import { useNavigate } from "react-router-dom";
+import { useSelector, useDispatch } from "react-redux";
+import type { RootState } from "../store";
+import {
+  addWatchlist,
+  editWatchlist,
+  deleteWatchlist,
+  selectWatchlist,
+  reorderStocks,
+  setAlerts,
+  setAlertNote,
+} from "../features/watchlistSlice";
 
-const initialWatchlists = mockData.watchlists.map((wl) => ({
-  ...wl,
-  alerts: false,
-  alertNote: "",
-}));
 const stocksMap = Object.fromEntries(mockData.stocks.map((s) => [s.id, s]));
 
 function DraggableStockItem({
@@ -89,8 +95,13 @@ function DraggableStockItem({
 }
 
 const Watchlist: React.FC = () => {
-  const [watchlists, setWatchlists] = useState(initialWatchlists);
-  const [selected, setSelected] = useState<number | null>(null);
+  const dispatch = useDispatch();
+  const watchlists = useSelector(
+    (state: RootState) => state.watchlist.watchlists
+  );
+  const selected = useSelector(
+    (state: RootState) => state.watchlist.selectedId
+  );
   const [modalOpen, setModalOpen] = useState(false);
   const [modalName, setModalName] = useState("");
   const [modalId, setModalId] = useState<number | null>(null);
@@ -109,37 +120,14 @@ const Watchlist: React.FC = () => {
   const handleModalOk = () => {
     if (!modalName.trim()) return message.error("Name required");
     if (modalId === null) {
-      // Add
-      const newId = Math.max(0, ...watchlists.map((w) => w.id)) + 1;
-      const now = new Date().toISOString();
-      setWatchlists([
-        ...watchlists,
-        {
-          id: newId,
-          name: modalName,
-          stocks: [],
-          alerts: false,
-          alertNote: "",
-          createdAt: now,
-          updatedAt: now,
-        },
-      ]);
-      setSelected(newId);
+      dispatch(addWatchlist({ name: modalName }));
     } else {
-      // Edit
-      setWatchlists(
-        watchlists.map((w) =>
-          w.id === modalId
-            ? { ...w, name: modalName, updatedAt: new Date().toISOString() }
-            : w
-        )
-      );
+      dispatch(editWatchlist({ id: modalId, name: modalName }));
     }
     setModalOpen(false);
   };
   const handleDelete = (id: number) => {
-    setWatchlists(watchlists.filter((w) => w.id !== id));
-    if (selected === id) setSelected(null);
+    dispatch(deleteWatchlist(id));
   };
 
   // DnD-kit
@@ -153,25 +141,15 @@ const Watchlist: React.FC = () => {
     const newIndex = stockIds.indexOf(String(over.id));
     if (oldIndex === -1 || newIndex === -1) return;
     const newStocks = arrayMove(stockIds, oldIndex, newIndex);
-    setWatchlists(
-      watchlists.map((w) =>
-        w.id === selectedWl.id
-          ? { ...w, stocks: newStocks, updatedAt: new Date().toISOString() }
-          : w
-      )
-    );
+    dispatch(reorderStocks({ id: selectedWl.id, stocks: newStocks }));
   };
 
   // Alerts
   const handleAlertToggle = (id: number, checked: boolean) => {
-    setWatchlists(
-      watchlists.map((w) => (w.id === id ? { ...w, alerts: checked } : w))
-    );
+    dispatch(setAlerts({ id, alerts: checked }));
   };
   const handleAlertNote = (id: number, note: string) => {
-    setWatchlists(
-      watchlists.map((w) => (w.id === id ? { ...w, alertNote: note } : w))
-    );
+    dispatch(setAlertNote({ id, note }));
   };
 
   // UI
@@ -195,7 +173,7 @@ const Watchlist: React.FC = () => {
               className={`watchlist-list-item${
                 selected === wl.id ? " selected" : ""
               }`}
-              onClick={() => setSelected(wl.id)}
+              onClick={() => dispatch(selectWatchlist(wl.id))}
             >
               <span>{wl.name}</span>
               <div className="flex gap-sm align-center">
