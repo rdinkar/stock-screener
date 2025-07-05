@@ -4,9 +4,11 @@ import {
   Route,
   Navigate,
   useLocation,
+  Link,
 } from "react-router-dom";
 import { Menu } from "antd";
 import Dashboard from "./components/Dashboard";
+import StockDetail from "./components/StockDetail";
 import {
   DashboardOutlined,
   SearchOutlined,
@@ -15,9 +17,6 @@ import {
 import "antd/dist/reset.css";
 import "./App.css";
 
-function StockDetail() {
-  return <h2>Stock Detail Page</h2>;
-}
 function Screener() {
   return <h2>Stock Screener Page</h2>;
 }
@@ -39,13 +38,13 @@ function Navigation() {
       style={{ height: "100%", borderRight: 0 }}
     >
       <Menu.Item key="/dashboard" icon={<DashboardOutlined />}>
-        <a href="/dashboard">Dashboard</a>
+        <Link to="/dashboard">Dashboard</Link>
       </Menu.Item>
       <Menu.Item key="/screener" icon={<SearchOutlined />}>
-        <a href="/screener">Screener</a>
+        <Link to="/screener">Screener</Link>
       </Menu.Item>
       <Menu.Item key="/watchlist" icon={<UnorderedListOutlined />}>
-        <a href="/watchlist">Watchlist</a>
+        <Link to="/watchlist">Watchlist</Link>
       </Menu.Item>
     </Menu>
   );

@@ -3,6 +3,7 @@ import { Table, Statistic } from "antd";
 import ReactECharts from "echarts-for-react";
 import mockData from "../assets/mock-data-json.json";
 import "./dashboard-helper.css";
+import { Link } from "react-router-dom";
 
 const stocks = mockData.stocks;
 const sectors = mockData.sectors;
@@ -49,7 +50,12 @@ const sectorOption = {
 
 type Stock = (typeof stocks)[number];
 const columns = [
-  { title: "Symbol", dataIndex: "id", key: "id" },
+  {
+    title: "Symbol",
+    dataIndex: "id",
+    key: "id",
+    render: (id: string) => <Link to={`/stock/${id}`}>{id}</Link>,
+  },
   { title: "Name", dataIndex: "name", key: "name" },
   {
     title: "Price",
@@ -86,7 +92,7 @@ const Dashboard: React.FC = () => (
       </div>
     </div>
     <div className="dashboard-sector-chart">
-      <ReactECharts option={sectorOption} style={{ height: 320 }} />
+      <ReactECharts option={sectorOption} className="dashboard-sector-echart" />
     </div>
     <div className="dashboard-tables-row">
       <div className="dashboard-table">
