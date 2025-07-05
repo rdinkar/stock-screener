@@ -56,15 +56,7 @@ function App() {
     <Router>
       <div className="flex h-100 over-auto">
         <div className="sidebar">
-          <div
-            className="logo"
-            style={{
-              height: 32,
-              margin: 16,
-            }}
-          >
-            Stock Screener
-          </div>
+          <div className="brand-logo">Stock Screener</div>
           <Navigation />
         </div>
         <Routes>
