@@ -6,6 +6,7 @@ import {
   useLocation,
 } from "react-router-dom";
 import { Menu } from "antd";
+import Dashboard from "./components/Dashboard";
 import {
   DashboardOutlined,
   SearchOutlined,
@@ -14,9 +15,6 @@ import {
 import "antd/dist/reset.css";
 import "./App.css";
 
-function Dashboard() {
-  return <h2>Dashboard Home</h2>;
-}
 function StockDetail() {
   return <h2>Stock Detail Page</h2>;
 }
@@ -56,8 +54,8 @@ function Navigation() {
 function App() {
   return (
     <Router>
-      <div style={{ display: "flex", minHeight: "100vh" }}>
-        <div style={{ width: 220, background: "#001529" }}>
+      <div className="flex h-100 over-auto">
+        <div className="sidebar">
           <div
             className="logo"
             style={{
@@ -69,23 +67,13 @@ function App() {
           </div>
           <Navigation />
         </div>
-        <div style={{ flex: 1, display: "flex", flexDirection: "column" }}>
-          <header style={{ background: "#fff", padding: 0, minHeight: 48 }} />
-          <main style={{ margin: "24px 16px 0", flex: 1 }}>
-            <div style={{ padding: 24, minHeight: 360, background: "#fff" }}>
-              <Routes>
-                <Route path="/dashboard" element={<Dashboard />} />
-                <Route path="/stock/:id" element={<StockDetail />} />
-                <Route path="/screener" element={<Screener />} />
-                <Route path="/watchlist" element={<Watchlist />} />
-                <Route
-                  path="*"
-                  element={<Navigate to="/dashboard" replace />}
-                />
-              </Routes>
-            </div>
-          </main>
-        </div>
+        <Routes>
+          <Route path="/dashboard" element={<Dashboard />} />
+          <Route path="/stock/:id" element={<StockDetail />} />
+          <Route path="/screener" element={<Screener />} />
+          <Route path="/watchlist" element={<Watchlist />} />
+          <Route path="*" element={<Navigate to="/dashboard" replace />} />
+        </Routes>
       </div>
     </Router>
   );

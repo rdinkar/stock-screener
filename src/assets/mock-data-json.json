@@ -1,0 +1,766 @@
+{
+  "stocks": [
+    {
+      "id": "AAPL",
+      "name": "Apple Inc.",
+      "sector": "Technology",
+      "industry": "Consumer Electronics",
+      "currentPrice": 178.72,
+      "change": 1.24,
+      "changePercent": 0.7,
+      "marketCap": 2780000000000,
+      "volume": 45826700,
+      "avgVolume": 56872300,
+      "pe": 29.4,
+      "eps": 6.08,
+      "dividend": 0.92,
+      "dividendYield": 0.52,
+      "beta": 1.28,
+      "yearHigh": 199.62,
+      "yearLow": 143.9
+    },
+    {
+      "id": "MSFT",
+      "name": "Microsoft Corporation",
+      "sector": "Technology",
+      "industry": "Software—Infrastructure",
+      "currentPrice": 411.22,
+      "change": -3.14,
+      "changePercent": -0.76,
+      "marketCap": 3060000000000,
+      "volume": 22679300,
+      "avgVolume": 26172000,
+      "pe": 35.2,
+      "eps": 11.68,
+      "dividend": 3.0,
+      "dividendYield": 0.73,
+      "beta": 0.9,
+      "yearHigh": 420.82,
+      "yearLow": 309.21
+    },
+    {
+      "id": "AMZN",
+      "name": "Amazon.com, Inc.",
+      "sector": "Consumer Cyclical",
+      "industry": "Internet Retail",
+      "currentPrice": 175.35,
+      "change": 2.21,
+      "changePercent": 1.28,
+      "marketCap": 1820000000000,
+      "volume": 32145600,
+      "avgVolume": 39876500,
+      "pe": 59.8,
+      "eps": 2.93,
+      "dividend": 0,
+      "dividendYield": 0,
+      "beta": 1.32,
+      "yearHigh": 189.77,
+      "yearLow": 118.35
+    },
+    {
+      "id": "GOOGL",
+      "name": "Alphabet Inc.",
+      "sector": "Communication Services",
+      "industry": "Internet Content & Information",
+      "currentPrice": 142.65,
+      "change": 0.38,
+      "changePercent": 0.27,
+      "marketCap": 1790000000000,
+      "volume": 19872300,
+      "avgVolume": 23456700,
+      "pe": 24.5,
+      "eps": 5.83,
+      "dividend": 0,
+      "dividendYield": 0,
+      "beta": 1.06,
+      "yearHigh": 153.78,
+      "yearLow": 120.21
+    },
+    {
+      "id": "META",
+      "name": "Meta Platforms, Inc.",
+      "sector": "Communication Services",
+      "industry": "Internet Content & Information",
+      "currentPrice": 473.32,
+      "change": 5.89,
+      "changePercent": 1.26,
+      "marketCap": 1210000000000,
+      "volume": 15678900,
+      "avgVolume": 17892300,
+      "pe": 27.1,
+      "eps": 17.47,
+      "dividend": 0,
+      "dividendYield": 0,
+      "beta": 1.21,
+      "yearHigh": 489.62,
+      "yearLow": 258.96
+    },
+    {
+      "id": "TSLA",
+      "name": "Tesla, Inc.",
+      "sector": "Consumer Cyclical",
+      "industry": "Auto Manufacturers",
+      "currentPrice": 177.67,
+      "change": -6.23,
+      "changePercent": -3.39,
+      "marketCap": 567000000000,
+      "volume": 87654300,
+      "avgVolume": 92367100,
+      "pe": 50.2,
+      "eps": 3.54,
+      "dividend": 0,
+      "dividendYield": 0,
+      "beta": 2.01,
+      "yearHigh": 299.29,
+      "yearLow": 138.8
+    },
+    {
+      "id": "NVDA",
+      "name": "NVIDIA Corporation",
+      "sector": "Technology",
+      "industry": "Semiconductors",
+      "currentPrice": 875.28,
+      "change": 23.67,
+      "changePercent": 2.78,
+      "marketCap": 2160000000000,
+      "volume": 43215600,
+      "avgVolume": 51243900,
+      "pe": 72.3,
+      "eps": 12.11,
+      "dividend": 0.16,
+      "dividendYield": 0.02,
+      "beta": 1.74,
+      "yearHigh": 925.66,
+      "yearLow": 238.44
+    },
+    {
+      "id": "JPM",
+      "name": "JPMorgan Chase & Co.",
+      "sector": "Financial Services",
+      "industry": "Banks—Diversified",
+      "currentPrice": 183.97,
+      "change": 1.29,
+      "changePercent": 0.71,
+      "marketCap": 530000000000,
+      "volume": 8765430,
+      "avgVolume": 9876540,
+      "pe": 11.2,
+      "eps": 16.43,
+      "dividend": 4.2,
+      "dividendYield": 2.28,
+      "beta": 1.12,
+      "yearHigh": 188.39,
+      "yearLow": 135.18
+    },
+    {
+      "id": "JNJ",
+      "name": "Johnson & Johnson",
+      "sector": "Healthcare",
+      "industry": "Drug Manufacturers—General",
+      "currentPrice": 151.78,
+      "change": -0.67,
+      "changePercent": -0.44,
+      "marketCap": 365000000000,
+      "volume": 6543210,
+      "avgVolume": 7654320,
+      "pe": 9.5,
+      "eps": 15.98,
+      "dividend": 4.76,
+      "dividendYield": 3.14,
+      "beta": 0.55,
+      "yearHigh": 177.48,
+      "yearLow": 144.95
+    },
+    {
+      "id": "PG",
+      "name": "The Procter & Gamble Company",
+      "sector": "Consumer Defensive",
+      "industry": "Household & Personal Products",
+      "currentPrice": 165.12,
+      "change": 0.89,
+      "changePercent": 0.54,
+      "marketCap": 388000000000,
+      "volume": 5432100,
+      "avgVolume": 6543210,
+      "pe": 27.1,
+      "eps": 6.09,
+      "dividend": 3.76,
+      "dividendYield": 2.28,
+      "beta": 0.42,
+      "yearHigh": 169.33,
+      "yearLow": 141.45
+    }
+  ],
+  "historical_data": {
+    "AAPL": {
+      "daily": [
+        {
+          "date": "2025-03-05",
+          "open": 175.21,
+          "high": 178.92,
+          "low": 174.89,
+          "close": 177.48,
+          "volume": 48796543
+        },
+        {
+          "date": "2025-03-06",
+          "open": 177.65,
+          "high": 179.24,
+          "low": 176.53,
+          "close": 178.35,
+          "volume": 42345678
+        },
+        {
+          "date": "2025-03-07",
+          "open": 178.42,
+          "high": 180.12,
+          "low": 177.56,
+          "close": 179.87,
+          "volume": 39876543
+        },
+        {
+          "date": "2025-03-08",
+          "open": 179.78,
+          "high": 181.32,
+          "low": 178.91,
+          "close": 180.65,
+          "volume": 37654321
+        },
+        {
+          "date": "2025-03-09",
+          "open": 180.45,
+          "high": 182.21,
+          "low": 179.32,
+          "close": 181.78,
+          "volume": 41234567
+        },
+        {
+          "date": "2025-03-10",
+          "open": 181.65,
+          "high": 183.24,
+          "low": 177.21,
+          "close": 178.72,
+          "volume": 45826700
+        }
+      ],
+      "weekly": [
+        { "date": "2025-02-09", "close": 168.42 },
+        { "date": "2025-02-16", "close": 170.18 },
+        { "date": "2025-02-23", "close": 173.56 },
+        { "date": "2025-03-02", "close": 175.89 },
+        { "date": "2025-03-09", "close": 181.78 }
+      ],
+      "monthly": [
+        { "date": "2024-10-01", "close": 158.21 },
+        { "date": "2024-11-01", "close": 162.45 },
+        { "date": "2024-12-01", "close": 167.89 },
+        { "date": "2025-01-01", "close": 170.32 },
+        { "date": "2025-02-01", "close": 175.67 },
+        { "date": "2025-03-01", "close": 178.72 }
+      ],
+      "yearly": [
+        { "date": "2020-03-01", "close": 72.26 },
+        { "date": "2021-03-01", "close": 121.09 },
+        { "date": "2022-03-01", "close": 157.44 },
+        { "date": "2023-03-01", "close": 143.9 },
+        { "date": "2024-03-01", "close": 169.58 },
+        { "date": "2025-03-01", "close": 178.72 }
+      ]
+    },
+    "MSFT": {
+      "daily": [
+        {
+          "date": "2025-03-05",
+          "open": 414.87,
+          "high": 417.92,
+          "low": 412.63,
+          "close": 416.25,
+          "volume": 22687543
+        },
+        {
+          "date": "2025-03-06",
+          "open": 416.32,
+          "high": 418.45,
+          "low": 414.21,
+          "close": 415.78,
+          "volume": 19345678
+        },
+        {
+          "date": "2025-03-07",
+          "open": 415.67,
+          "high": 417.89,
+          "low": 413.42,
+          "close": 416.92,
+          "volume": 21876543
+        },
+        {
+          "date": "2025-03-08",
+          "open": 417.32,
+          "high": 419.76,
+          "low": 415.89,
+          "close": 418.45,
+          "volume": 18654321
+        },
+        {
+          "date": "2025-03-09",
+          "open": 418.56,
+          "high": 420.32,
+          "low": 417.23,
+          "close": 419.78,
+          "volume": 20234567
+        },
+        {
+          "date": "2025-03-10",
+          "open": 420.12,
+          "high": 422.35,
+          "low": 410.89,
+          "close": 411.22,
+          "volume": 22679300
+        }
+      ],
+      "weekly": [
+        { "date": "2025-02-09", "close": 398.67 },
+        { "date": "2025-02-16", "close": 402.89 },
+        { "date": "2025-02-23", "close": 408.45 },
+        { "date": "2025-03-02", "close": 412.78 },
+        { "date": "2025-03-09", "close": 419.78 }
+      ],
+      "monthly": [
+        { "date": "2024-10-01", "close": 378.92 },
+        { "date": "2024-11-01", "close": 385.67 },
+        { "date": "2024-12-01", "close": 392.45 },
+        { "date": "2025-01-01", "close": 399.87 },
+        { "date": "2025-02-01", "close": 409.23 },
+        { "date": "2025-03-01", "close": 411.22 }
+      ],
+      "yearly": [
+        { "date": "2020-03-01", "close": 162.01 },
+        { "date": "2021-03-01", "close": 232.38 },
+        { "date": "2022-03-01", "close": 298.79 },
+        { "date": "2023-03-01", "close": 327.29 },
+        { "date": "2024-03-01", "close": 385.33 },
+        { "date": "2025-03-01", "close": 411.22 }
+      ]
+    }
+  },
+  "financials": {
+    "AAPL": {
+      "quarterly": [
+        {
+          "date": "2024-12-31",
+          "revenue": 119688000000,
+          "netIncome": 33916000000,
+          "eps": 2.18,
+          "operatingCashFlow": 39669000000,
+          "freeCashFlow": 36142000000
+        },
+        {
+          "date": "2024-09-30",
+          "revenue": 89516000000,
+          "netIncome": 23005000000,
+          "eps": 1.47,
+          "operatingCashFlow": 29785000000,
+          "freeCashFlow": 26301000000
+        },
+        {
+          "date": "2024-06-30",
+          "revenue": 81797000000,
+          "netIncome": 21742000000,
+          "eps": 1.39,
+          "operatingCashFlow": 26542000000,
+          "freeCashFlow": 23145000000
+        },
+        {
+          "date": "2024-03-31",
+          "revenue": 90146000000,
+          "netIncome": 23643000000,
+          "eps": 1.52,
+          "operatingCashFlow": 28647000000,
+          "freeCashFlow": 25387000000
+        },
+        {
+          "date": "2023-12-31",
+          "revenue": 117154000000,
+          "netIncome": 33926000000,
+          "eps": 2.18,
+          "operatingCashFlow": 39162000000,
+          "freeCashFlow": 36018000000
+        }
+      ],
+      "annual": [
+        {
+          "year": 2024,
+          "revenue": 383380000000,
+          "netIncome": 99924000000,
+          "eps": 6.35,
+          "operatingCashFlow": 119823000000,
+          "freeCashFlow": 109634000000,
+          "totalAssets": 385730000000,
+          "totalLiabilities": 287456000000,
+          "totalEquity": 98274000000,
+          "debtToEquity": 1.65,
+          "returnOnEquity": 0.67,
+          "returnOnAssets": 0.17
+        },
+        {
+          "year": 2023,
+          "revenue": 383292000000,
+          "netIncome": 97098000000,
+          "eps": 6.13,
+          "operatingCashFlow": 118359000000,
+          "freeCashFlow": 109289000000,
+          "totalAssets": 375319000000,
+          "totalLiabilities": 279872000000,
+          "totalEquity": 95447000000,
+          "debtToEquity": 1.69,
+          "returnOnEquity": 0.66,
+          "returnOnAssets": 0.16
+        },
+        {
+          "year": 2022,
+          "revenue": 394328000000,
+          "netIncome": 99803000000,
+          "eps": 6.05,
+          "operatingCashFlow": 122151000000,
+          "freeCashFlow": 111443000000,
+          "totalAssets": 352755000000,
+          "totalLiabilities": 261485000000,
+          "totalEquity": 91270000000,
+          "debtToEquity": 1.73,
+          "returnOnEquity": 0.76,
+          "returnOnAssets": 0.19
+        },
+        {
+          "year": 2021,
+          "revenue": 365817000000,
+          "netIncome": 94680000000,
+          "eps": 5.61,
+          "operatingCashFlow": 104038000000,
+          "freeCashFlow": 92953000000,
+          "totalAssets": 351002000000,
+          "totalLiabilities": 287912000000,
+          "totalEquity": 63090000000,
+          "debtToEquity": 2.19,
+          "returnOnEquity": 1.5,
+          "returnOnAssets": 0.24
+        },
+        {
+          "year": 2020,
+          "revenue": 274515000000,
+          "netIncome": 57411000000,
+          "eps": 3.28,
+          "operatingCashFlow": 80674000000,
+          "freeCashFlow": 73365000000,
+          "totalAssets": 323888000000,
+          "totalLiabilities": 258549000000,
+          "totalEquity": 65339000000,
+          "debtToEquity": 1.76,
+          "returnOnEquity": 0.88,
+          "returnOnAssets": 0.17
+        }
+      ]
+    },
+    "MSFT": {
+      "quarterly": [
+        {
+          "date": "2024-12-31",
+          "revenue": 62020000000,
+          "netIncome": 21870000000,
+          "eps": 2.93,
+          "operatingCashFlow": 27051000000,
+          "freeCashFlow": 21543000000
+        },
+        {
+          "date": "2024-09-30",
+          "revenue": 56521000000,
+          "netIncome": 20831000000,
+          "eps": 2.79,
+          "operatingCashFlow": 25182000000,
+          "freeCashFlow": 17987000000
+        },
+        {
+          "date": "2024-06-30",
+          "revenue": 59685000000,
+          "netIncome": 22283000000,
+          "eps": 2.99,
+          "operatingCashFlow": 30079000000,
+          "freeCashFlow": 22324000000
+        },
+        {
+          "date": "2024-03-31",
+          "revenue": 56195000000,
+          "netIncome": 21945000000,
+          "eps": 2.94,
+          "operatingCashFlow": 27547000000,
+          "freeCashFlow": 20438000000
+        },
+        {
+          "date": "2023-12-31",
+          "revenue": 52747000000,
+          "netIncome": 21868000000,
+          "eps": 2.93,
+          "operatingCashFlow": 16284000000,
+          "freeCashFlow": 11016000000
+        }
+      ],
+      "annual": [
+        {
+          "year": 2024,
+          "revenue": 227636000000,
+          "netIncome": 83386000000,
+          "eps": 11.17,
+          "operatingCashFlow": 110430000000,
+          "freeCashFlow": 82292000000,
+          "totalAssets": 417626000000,
+          "totalLiabilities": 192915000000,
+          "totalEquity": 224711000000,
+          "debtToEquity": 0.39,
+          "returnOnEquity": 0.37,
+          "returnOnAssets": 0.21
+        },
+        {
+          "year": 2023,
+          "revenue": 211915000000,
+          "netIncome": 72361000000,
+          "eps": 9.68,
+          "operatingCashFlow": 87985000000,
+          "freeCashFlow": 59478000000,
+          "totalAssets": 364840000000,
+          "totalLiabilities": 165188000000,
+          "totalEquity": 199652000000,
+          "debtToEquity": 0.41,
+          "returnOnEquity": 0.39,
+          "returnOnAssets": 0.21
+        },
+        {
+          "year": 2022,
+          "revenue": 198270000000,
+          "netIncome": 72738000000,
+          "eps": 9.65,
+          "operatingCashFlow": 89035000000,
+          "freeCashFlow": 65149000000,
+          "totalAssets": 364840000000,
+          "totalLiabilities": 169829000000,
+          "totalEquity": 166542000000,
+          "debtToEquity": 0.39,
+          "returnOnEquity": 0.47,
+          "returnOnAssets": 0.21
+        },
+        {
+          "year": 2021,
+          "revenue": 168088000000,
+          "netIncome": 61271000000,
+          "eps": 8.05,
+          "operatingCashFlow": 76740000000,
+          "freeCashFlow": 56118000000,
+          "totalAssets": 333779000000,
+          "totalLiabilities": 155249000000,
+          "totalEquity": 141988000000,
+          "debtToEquity": 0.41,
+          "returnOnEquity": 0.47,
+          "returnOnAssets": 0.2
+        },
+        {
+          "year": 2020,
+          "revenue": 143015000000,
+          "netIncome": 44281000000,
+          "eps": 5.76,
+          "operatingCashFlow": 60675000000,
+          "freeCashFlow": 45234000000,
+          "totalAssets": 301311000000,
+          "totalLiabilities": 132800000000,
+          "totalEquity": 118304000000,
+          "debtToEquity": 0.41,
+          "returnOnEquity": 0.4,
+          "returnOnAssets": 0.15
+        }
+      ]
+    }
+  },
+  "sectors": [
+    {
+      "name": "Technology",
+      "changePercent": 1.25,
+      "marketCap": 12560000000000,
+      "peRatio": 28.7,
+      "dividendYield": 0.87,
+      "stocks": ["AAPL", "MSFT", "NVDA"]
+    },
+    {
+      "name": "Communication Services",
+      "changePercent": 0.63,
+      "marketCap": 4980000000000,
+      "peRatio": 23.5,
+      "dividendYield": 0.92,
+      "stocks": ["GOOGL", "META"]
+    },
+    {
+      "name": "Consumer Cyclical",
+      "changePercent": -0.82,
+      "marketCap": 3210000000000,
+      "peRatio": 24.9,
+      "dividendYield": 0.65,
+      "stocks": ["AMZN", "TSLA"]
+    },
+    {
+      "name": "Financial Services",
+      "changePercent": 0.42,
+      "marketCap": 3540000000000,
+      "peRatio": 13.2,
+      "dividendYield": 2.34,
+      "stocks": ["JPM"]
+    },
+    {
+      "name": "Healthcare",
+      "changePercent": -0.24,
+      "marketCap": 2870000000000,
+      "peRatio": 17.8,
+      "dividendYield": 2.76,
+      "stocks": ["JNJ"]
+    },
+    {
+      "name": "Consumer Defensive",
+      "changePercent": 0.38,
+      "marketCap": 2150000000000,
+      "peRatio": 22.1,
+      "dividendYield": 2.58,
+      "stocks": ["PG"]
+    },
+    {
+      "name": "Industrials",
+      "changePercent": 0.53,
+      "marketCap": 2340000000000,
+      "peRatio": 19.7,
+      "dividendYield": 1.85,
+      "stocks": []
+    },
+    {
+      "name": "Energy",
+      "changePercent": -1.27,
+      "marketCap": 1870000000000,
+      "peRatio": 12.3,
+      "dividendYield": 3.76,
+      "stocks": []
+    },
+    {
+      "name": "Materials",
+      "changePercent": 0.18,
+      "marketCap": 1430000000000,
+      "peRatio": 16.8,
+      "dividendYield": 2.34,
+      "stocks": []
+    },
+    {
+      "name": "Real Estate",
+      "changePercent": -0.65,
+      "marketCap": 1120000000000,
+      "peRatio": 21.5,
+      "dividendYield": 3.92,
+      "stocks": []
+    }
+  ],
+  "watchlists": [
+    {
+      "id": 1,
+      "name": "Tech Giants",
+      "stocks": ["AAPL", "MSFT", "GOOGL", "META", "AMZN"],
+      "createdAt": "2025-01-15T10:30:00Z",
+      "updatedAt": "2025-03-08T14:25:00Z"
+    },
+    {
+      "id": 2,
+      "name": "Dividend Earners",
+      "stocks": ["JNJ", "PG", "JPM", "MSFT"],
+      "createdAt": "2025-02-03T09:15:00Z",
+      "updatedAt": "2025-03-07T11:45:00Z"
+    },
+    {
+      "id": 3,
+      "name": "Growth Potential",
+      "stocks": ["TSLA", "NVDA", "AMZN"],
+      "createdAt": "2025-02-28T16:20:00Z",
+      "updatedAt": "2025-03-09T12:10:00Z"
+    }
+  ],
+  "screener_presets": {
+    "presets": [
+      {
+        "id": 1,
+        "name": "Value Stocks",
+        "description": "Low P/E, high dividend stocks",
+        "criteria": [
+          { "metric": "pe", "operator": "<=", "value": 15 },
+          { "metric": "dividendYield", "operator": ">=", "value": 2 },
+          { "metric": "marketCap", "operator": ">=", "value": 10000000000 }
+        ],
+        "createdAt": "2025-01-10T08:45:00Z"
+      },
+      {
+        "id": 2,
+        "name": "Growth Stocks",
+        "description": "High growth potential stocks",
+        "criteria": [
+          { "metric": "pe", "operator": ">", "value": 20 },
+          { "metric": "beta", "operator": ">=", "value": 1.2 },
+          { "metric": "changePercent", "operator": ">", "value": 0 }
+        ],
+        "createdAt": "2025-02-15T14:30:00Z"
+      },
+      {
+        "id": 3,
+        "name": "Stable Income",
+        "description": "Stable stocks with good dividends",
+        "criteria": [
+          { "metric": "beta", "operator": "<", "value": 1 },
+          { "metric": "dividendYield", "operator": ">=", "value": 1.5 },
+          { "metric": "marketCap", "operator": ">=", "value": 50000000000 }
+        ],
+        "createdAt": "2025-01-28T11:20:00Z"
+      }
+    ],
+    "availableMetrics": [
+      {
+        "id": "currentPrice",
+        "name": "Current Price",
+        "category": "Price",
+        "description": "Current stock price"
+      },
+      {
+        "id": "changePercent",
+        "name": "Change %",
+        "category": "Price",
+        "description": "Daily price change percentage"
+      },
+      {
+        "id": "marketCap",
+        "name": "Market Cap",
+        "category": "Company",
+        "description": "Total market value of company"
+      },
+      {
+        "id": "volume",
+        "name": "Volume",
+        "category": "Trading",
+        "description": "Daily trading volume"
+      },
+      {
+        "id": "pe",
+        "name": "P/E Ratio",
+        "category": "Valuation",
+        "description": "Price to earnings ratio"
+      },
+      {
+        "id": "eps",
+        "name": "EPS",
+        "category": "Financials",
+        "description": "Earnings per share"
+      },
+      {
+        "id": "dividendYield",
+        "name": "Dividend Yield %",
+        "category": "Dividends",
+        "description": "Annual dividend yield percentage"
+      }
+    ]
+  }
+}

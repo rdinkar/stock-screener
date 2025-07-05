@@ -1,0 +1,36 @@
+.flex {
+  display: flex;
+}
+
+.flex-col {
+  display: flex;
+  flex-direction: column;
+}
+
+.flex-1 {
+  flex: 1;
+}
+
+.p-sm {
+  padding: 5px;
+}
+
+.p-md {
+  padding: 10px;
+}
+
+.p-lg {
+  padding: 15px;
+}
+
+.bg-1 {
+  background-color: #001529;
+}
+
+.h-100 {
+  height: 100%;
+}
+
+.over-auto {
+  overflow: auto;
+}
