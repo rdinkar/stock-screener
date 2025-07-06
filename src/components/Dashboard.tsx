@@ -1,10 +1,14 @@
 import React from "react";
-import { Table, Statistic } from "antd";
 import ReactECharts from "echarts-for-react";
 import mockData from "../assets/mock-data-json.json";
 import "./dashboard-helper.css";
 import { Link } from "react-router-dom";
+import MetricCard from "./MetricCard";
+import StockTable from "./StockTable";
 
+/**
+ * Dashboard displays an overview of the market, including key metrics, sector performance, and top stocks.
+ */
 const stocks = mockData.stocks;
 const sectors = mockData.sectors;
 
@@ -75,21 +79,15 @@ const columns = [
 const Dashboard: React.FC = () => (
   <div className="dashboard-container">
     <div className="dashboard-metrics-row">
-      <div className="dashboard-metric">
-        <Statistic
-          title="Total Market Cap"
-          value={totalMarketCap}
-          precision={0}
-          prefix="$"
-          valueStyle={{ fontSize: 22 }}
-        />
-      </div>
-      <div className="dashboard-metric">
-        <Statistic title="Avg. P/E Ratio" value={avgPE} />
-      </div>
-      <div className="dashboard-metric">
-        <Statistic title="Avg. Dividend Yield (%)" value={avgDividendYield} />
-      </div>
+      <MetricCard
+        title="Total Market Cap"
+        value={totalMarketCap}
+        prefix="$"
+        precision={0}
+        style={{ fontSize: 22 }}
+      />
+      <MetricCard title="Avg. P/E Ratio" value={avgPE} />
+      <MetricCard title="Avg. Dividend Yield (%)" value={avgDividendYield} />
     </div>
     <div className="dashboard-sector-chart">
       <ReactECharts option={sectorOption} className="dashboard-sector-echart" />
@@ -97,32 +95,29 @@ const Dashboard: React.FC = () => (
     <div className="dashboard-tables-row">
       <div className="dashboard-table">
         <div className="dashboard-table-title">Top Gainers</div>
-        <Table
+        <StockTable
           columns={columns}
-          dataSource={topGainers}
-          size="small"
+          data={topGainers}
           pagination={false}
-          rowKey="id"
+          size="small"
         />
       </div>
       <div className="dashboard-table">
         <div className="dashboard-table-title">Top Losers</div>
-        <Table
+        <StockTable
           columns={columns}
-          dataSource={topLosers}
-          size="small"
+          data={topLosers}
           pagination={false}
-          rowKey="id"
+          size="small"
         />
       </div>
       <div className="dashboard-table">
         <div className="dashboard-table-title">Most Active</div>
-        <Table
+        <StockTable
           columns={columns}
-          dataSource={mostActive}
-          size="small"
+          data={mostActive}
           pagination={false}
-          rowKey="id"
+          size="small"
         />
       </div>
     </div>

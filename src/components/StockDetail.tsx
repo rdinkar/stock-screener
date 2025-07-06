@@ -1,10 +1,15 @@
 import React, { useMemo, useState } from "react";
 import { useParams } from "react-router-dom";
-import { Tabs, Statistic, Table, Tag, Empty } from "antd";
+import { Tabs, Tag, Empty } from "antd";
 import ReactECharts from "echarts-for-react";
 import mockData from "../assets/mock-data-json.json";
 import "./dashboard-helper.css";
+import MetricCard from "./MetricCard";
+import StockTable from "./StockTable";
 
+/**
+ * StockDetail displays detailed information about a stock, including price chart, key ratios, financial trends, and company info.
+ */
 const { TabPane } = Tabs;
 
 const timePeriods = [
@@ -187,7 +192,7 @@ const StockDetail: React.FC = () => {
           {stock.name} <Tag color="blue">{stock.id}</Tag>
         </div>
         <div className="stock-detail-price">
-          <Statistic
+          <MetricCard
             title="Current Price"
             value={stock.currentPrice}
             prefix="$"
@@ -216,9 +221,7 @@ const StockDetail: React.FC = () => {
           <div className="stock-detail-ratios-title">Key Ratios</div>
           <div className="stock-detail-ratios-list">
             {ratios.map((r) => (
-              <div className="stock-detail-ratio" key={r.label}>
-                <Statistic title={r.label} value={r.value} />
-              </div>
+              <MetricCard key={r.label} title={r.label} value={r.value} />
             ))}
           </div>
         </div>
@@ -242,17 +245,15 @@ const StockDetail: React.FC = () => {
         </div>
         <div className="stock-detail-info">
           <div className="stock-detail-info-title">Company Info</div>
-          <Table
+          <StockTable
             columns={[
               { title: "Field", dataIndex: "label", key: "label" },
               { title: "Value", dataIndex: "value", key: "value" },
             ]}
-            dataSource={infoRows}
+            data={infoRows}
             size="small"
             pagination={false}
             rowKey="label"
-            showHeader={false}
-            className="stock-detail-info-table"
           />
         </div>
       </div>

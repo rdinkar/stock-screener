@@ -4,7 +4,6 @@ import {
   Select,
   InputNumber,
   message,
-  Table,
   Space,
   Modal,
   Input,
@@ -24,7 +23,11 @@ import {
   loadPreset,
   setSelectedPreset,
 } from "../features/screenerSlice";
+import StockTable from "./StockTable";
 
+/**
+ * Screener provides a tool for filtering, sorting, and exporting stock data with customizable criteria and presets.
+ */
 const metrics = mockData.screener_presets.availableMetrics;
 const presets = mockData.screener_presets.presets;
 const stocks = mockData.stocks;
@@ -317,16 +320,14 @@ const Screener: React.FC = () => {
             Export
           </Button>
         </div>
-        <Table
+        <StockTable
           columns={columns}
-          dataSource={filteredData}
+          data={filteredData}
           rowKey="id"
           size="middle"
-          pagination={{ pageSize: 10 }}
-          onRow={(record) => ({
-            onClick: () => navigate(`/stock/${record.id}`),
-            style: { cursor: "pointer" },
-          })}
+          pageSize={10}
+          pagination={true}
+          onRowClick={(record) => navigate(`/stock/${record.id}`)}
         />
         <Modal
           open={saveModalOpen}
