@@ -7,17 +7,17 @@ import {
   Link,
 } from "react-router-dom";
 import { Menu } from "antd";
-import Dashboard from "./components/Dashboard";
-import StockDetail from "./components/StockDetail";
-import Watchlist from "./components/Watchlist";
-import Screener from "./components/Screener";
+import DashboardPage from "./pages/DashboardPage";
+import StockDetailPage from "./pages/StockDetailPage";
+import WatchlistPage from "./pages/WatchlistPage";
+import ScreenerPage from "./pages/ScreenerPage";
 import {
   DashboardOutlined,
   SearchOutlined,
   UnorderedListOutlined,
 } from "@ant-design/icons";
 import "antd/dist/reset.css";
-import "./App.css";
+import "./styles/App.css";
 
 function Navigation() {
   const location = useLocation();
@@ -54,10 +54,10 @@ function App() {
           <Navigation />
         </div>
         <Routes>
-          <Route path="/dashboard" element={<Dashboard />} />
-          <Route path="/stock/:id" element={<StockDetail />} />
-          <Route path="/screener" element={<Screener />} />
-          <Route path="/watchlist" element={<Watchlist />} />
+          <Route path="/dashboard" element={<DashboardPage />} />
+          <Route path="/stock/:id" element={<StockDetailPage />} />
+          <Route path="/screener" element={<ScreenerPage />} />
+          <Route path="/watchlist" element={<WatchlistPage />} />
           <Route path="*" element={<Navigate to="/dashboard" replace />} />
         </Routes>
       </div>

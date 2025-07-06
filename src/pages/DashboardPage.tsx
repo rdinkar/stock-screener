@@ -1,10 +1,10 @@
 import React from "react";
-import ReactECharts from "echarts-for-react";
 import mockData from "../assets/mock-data-json.json";
-import "./dashboard-helper.css";
+import "../styles/helper.css";
 import { Link } from "react-router-dom";
-import MetricCard from "./MetricCard";
-import StockTable from "./StockTable";
+import DashboardMetricsRow from "../components/DashboardMetricsRow";
+import DashboardSectorChart from "../components/DashboardSectorChart";
+import DashboardTablesRow from "../components/DashboardTablesRow";
 
 /**
  * Dashboard displays an overview of the market, including key metrics, sector performance, and top stocks.
@@ -52,7 +52,7 @@ const sectorOption = {
   ],
 };
 
-type Stock = (typeof stocks)[number];
+export type Stock = (typeof stocks)[number];
 const columns = [
   {
     title: "Symbol",
@@ -78,49 +78,18 @@ const columns = [
 
 const Dashboard: React.FC = () => (
   <div className="dashboard-container">
-    <div className="dashboard-metrics-row">
-      <MetricCard
-        title="Total Market Cap"
-        value={totalMarketCap}
-        prefix="$"
-        precision={0}
-        style={{ fontSize: 22 }}
-      />
-      <MetricCard title="Avg. P/E Ratio" value={avgPE} />
-      <MetricCard title="Avg. Dividend Yield (%)" value={avgDividendYield} />
-    </div>
-    <div className="dashboard-sector-chart">
-      <ReactECharts option={sectorOption} className="dashboard-sector-echart" />
-    </div>
-    <div className="dashboard-tables-row">
-      <div className="dashboard-table">
-        <div className="dashboard-table-title">Top Gainers</div>
-        <StockTable
-          columns={columns}
-          data={topGainers}
-          pagination={false}
-          size="small"
-        />
-      </div>
-      <div className="dashboard-table">
-        <div className="dashboard-table-title">Top Losers</div>
-        <StockTable
-          columns={columns}
-          data={topLosers}
-          pagination={false}
-          size="small"
-        />
-      </div>
-      <div className="dashboard-table">
-        <div className="dashboard-table-title">Most Active</div>
-        <StockTable
-          columns={columns}
-          data={mostActive}
-          pagination={false}
-          size="small"
-        />
-      </div>
-    </div>
+    <DashboardMetricsRow
+      totalMarketCap={totalMarketCap}
+      avgPE={avgPE}
+      avgDividendYield={avgDividendYield}
+    />
+    <DashboardSectorChart sectorOption={sectorOption} />
+    <DashboardTablesRow
+      columns={columns}
+      topGainers={topGainers}
+      topLosers={topLosers}
+      mostActive={mostActive}
+    />
   </div>
 );
 
