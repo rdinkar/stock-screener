@@ -1,5 +1,5 @@
 import React from "react";
-import { Button, Select, Space } from "antd";
+import { Button, Select } from "antd";
 
 /**
  * ScreenerPresetsRow displays preset filter buttons, saved config select, and save button.
