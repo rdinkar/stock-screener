@@ -1,5 +1,5 @@
 ## Live Demo
-[Click here to go live demo](https://stock-screener-hf1n.vercel.app/dashboard)
+[Click here to go live demo](https://stock-screener-hf1n.vercel.app/)
 
 ## Folder Structure
 
