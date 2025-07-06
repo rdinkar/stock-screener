@@ -9,9 +9,9 @@ interface StockKeyRatiosProps {
 }
 
 const StockKeyRatios: React.FC<StockKeyRatiosProps> = ({ ratios }) => (
-  <div className="stock-detail-ratios">
-    <div className="stock-detail-ratios-title">Key Ratios</div>
-    <div className="stock-detail-ratios-list">
+  <div className="flex-1 bg-white br-md p-lg flex-col align-stretch">
+    <h3 className="m-b-md">Key Ratios</h3>
+    <div className="grid-2-col gap-md">
       {ratios.map((r) => (
         <MetricCard key={r.label} title={r.label} value={r.value} />
       ))}

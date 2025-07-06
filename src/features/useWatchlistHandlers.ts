@@ -13,11 +13,10 @@ import {
 } from "./watchlistSlice";
 import mockData from "../assets/mock-data-json.json";
 import {
-  DndContext,
-  closestCenter,
   PointerSensor,
   useSensor,
   useSensors,
+  type DragEndEvent,
 } from "@dnd-kit/core";
 import { arrayMove } from "@dnd-kit/sortable";
 
@@ -67,7 +66,7 @@ export function useWatchlistHandlers() {
   };
 
   // DnD
-  const handleDragEnd = (event: any) => {
+  const handleDragEnd = (event: DragEndEvent) => {
     const { active, over } = event;
     if (!over || active.id === over.id) return;
     const oldIndex = stockIds.indexOf(String(active.id));

@@ -57,6 +57,7 @@ const ScreenerFilters: React.FC<ScreenerFiltersProps> = ({
         <InputNumber
           style={{ width: 120, marginRight: 8 }}
           value={f.value}
+          // @ts-expect-error - antd types issue
           onChange={(v) => onUpdate(idx, "value", v)}
           placeholder="Value"
           size="small"

@@ -1,6 +1,5 @@
 import React from "react";
 import { Empty } from "antd";
-import "../styles/helper.css";
 import { useStockDetail } from "../features/useStockDetail";
 import StockDetailHeader from "../components/StockDetailHeader";
 import StockPriceChart from "../components/StockPriceChart";
@@ -8,9 +7,6 @@ import StockKeyRatios from "../components/StockKeyRatios";
 import StockFinancialTrends from "../components/StockFinancialTrends";
 import StockCompanyInfo from "../components/StockCompanyInfo";
 
-/**
- * StockDetailPage displays detailed information about a stock, including price chart, key ratios, financial trends, and company info.
- */
 const StockDetailPage: React.FC = () => {
   const {
     stock,
@@ -28,7 +24,7 @@ const StockDetailPage: React.FC = () => {
   if (!stock) return <Empty description="Stock not found" />;
 
   return (
-    <div className="stock-detail-container">
+    <div className="bg-gray p-xl flex-1 h-100 over-auto">
       <StockDetailHeader
         name={stock.name}
         id={stock.id}
@@ -36,16 +32,18 @@ const StockDetailPage: React.FC = () => {
         change={stock.change}
         changePercent={stock.changePercent}
       />
-      <div className="stock-detail-main">
-        <StockPriceChart
-          period={period}
-          setPeriod={setPeriod}
-          timePeriods={timePeriods}
-          priceOption={priceOption}
-        />
+      <div className="flex gap-xl m-b-xl flex-wrap">
+        {priceOption && (
+          <StockPriceChart
+            period={period}
+            setPeriod={setPeriod}
+            timePeriods={timePeriods}
+            priceOption={priceOption}
+          />
+        )}
         <StockKeyRatios ratios={ratios} />
       </div>
-      <div className="stock-detail-financials">
+      <div className="flex gap-xl flex-wrap">
         <StockFinancialTrends
           trendOption={trendOption}
           quarterly={quarterly}

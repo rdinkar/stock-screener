@@ -1,16 +1,17 @@
 import React from "react";
 import mockData from "../assets/mock-data-json.json";
-import "../styles/helper.css";
 import { Link } from "react-router-dom";
 import DashboardMetricsRow from "../components/DashboardMetricsRow";
 import DashboardSectorChart from "../components/DashboardSectorChart";
 import DashboardTablesRow from "../components/DashboardTablesRow";
 
-/**
- * Dashboard displays an overview of the market, including key metrics, sector performance, and top stocks.
- */
 const stocks = mockData.stocks;
 const sectors = mockData.sectors;
+
+const colors = {
+  positive: "#52c41a",
+  negative: "#f5222d",
+};
 
 // Key market metrics
 const totalMarketCap = stocks.reduce((sum, s) => sum + s.marketCap, 0);
@@ -26,9 +27,7 @@ const sortedByChange = [...stocks].sort(
   (a, b) => b.changePercent - a.changePercent
 );
 const topGainers = sortedByChange.slice(0, 5);
-const topLosers = [...stocks]
-  .sort((a, b) => a.changePercent - b.changePercent)
-  .slice(0, 5);
+const topLosers = sortedByChange.slice(-5).reverse();
 const mostActive = [...stocks].sort((a, b) => b.volume - a.volume).slice(0, 5);
 
 // Sector performance for ECharts
@@ -46,7 +45,7 @@ const sectorOption = {
       type: "bar",
       itemStyle: {
         color: (params: { value: number }) =>
-          params.value >= 0 ? "#52c41a" : "#f5222d",
+          params.value >= 0 ? colors.positive : colors.negative,
       },
     },
   ],
@@ -71,13 +70,20 @@ const columns = [
     title: "Change",
     dataIndex: "change",
     key: "change",
-    render: (v: number, r: Stock) => `${v} (${r.changePercent}%)`,
+    render: (v: number, r: Stock) => {
+      const color = v >= 0 ? colors.positive : colors.negative;
+      return (
+        <>
+          {v} <span style={{ color }}>({r.changePercent}%)</span>
+        </>
+      );
+    },
   },
   { title: "Volume", dataIndex: "volume", key: "volume" },
 ];
 
 const Dashboard: React.FC = () => (
-  <div className="dashboard-container">
+  <div className="bg-gray p-xl flex-1 h-100 over-auto">
     <DashboardMetricsRow
       totalMarketCap={totalMarketCap}
       avgPE={avgPE}

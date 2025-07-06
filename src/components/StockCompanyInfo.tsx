@@ -14,8 +14,8 @@ const columns = [
 ];
 
 const StockCompanyInfo: React.FC<StockCompanyInfoProps> = ({ infoRows }) => (
-  <div className="stock-detail-info">
-    <div className="stock-detail-info-title">Company Info</div>
+  <div className="flex-1 bg-white br-md p-lg flex-col align-stretch">
+    <h3 className="m-b-md">Company Info</h3>
     <StockTable
       columns={columns}
       data={infoRows}

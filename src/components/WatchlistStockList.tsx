@@ -1,19 +1,21 @@
 import React from "react";
-import { DndContext } from "@dnd-kit/core";
+import { DndContext, useSensors, type DragEndEvent } from "@dnd-kit/core";
 import {
   SortableContext,
   verticalListSortingStrategy,
 } from "@dnd-kit/sortable";
-import DraggableStockItem from "./DraggableStockItem";
+import DraggableStockItem, {
+  type DraggableStockItemProps,
+} from "./DraggableStockItem";
 
 /**
  * WatchlistStockList renders the draggable list of stocks in a watchlist.
  */
 interface WatchlistStockListProps {
   stockIds: string[];
-  stocksMap: Record<string, any>;
-  sensors: any;
-  onDragEnd: (event: any) => void;
+  stocksMap: Record<string, DraggableStockItemProps["stock"]>;
+  sensors: ReturnType<typeof useSensors>;
+  onDragEnd: (event: DragEndEvent) => void;
 }
 
 const WatchlistStockList: React.FC<WatchlistStockListProps> = ({

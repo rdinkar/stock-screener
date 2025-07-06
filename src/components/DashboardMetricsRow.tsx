@@ -15,16 +15,20 @@ const DashboardMetricsRow: React.FC<DashboardMetricsRowProps> = ({
   avgPE,
   avgDividendYield,
 }) => (
-  <div className="dashboard-metrics-row">
+  <div className="flex gap-xl m-b-xl">
     <MetricCard
       title="Total Market Cap"
       value={totalMarketCap}
       prefix="$"
       precision={0}
-      style={{ fontSize: 22 }}
+      className="flex-1"
     />
-    <MetricCard title="Avg. P/E Ratio" value={avgPE} />
-    <MetricCard title="Avg. Dividend Yield (%)" value={avgDividendYield} />
+    <MetricCard title="Avg. P/E Ratio" value={avgPE} className="flex-1" />
+    <MetricCard
+      title="Avg. Dividend Yield (%)"
+      value={avgDividendYield}
+      className="flex-1"
+    />
   </div>
 );
 

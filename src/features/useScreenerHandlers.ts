@@ -74,11 +74,6 @@ export function useScreenerHandlers() {
     }
   };
 
-  const handleExport = () => {
-    // columns are imported in the page, so we can't access them here
-    // Export logic should be handled in the page
-  };
-
   const updateFilter = (
     idx: number,
     key: "metric" | "operator" | "value",
@@ -105,7 +100,6 @@ export function useScreenerHandlers() {
     addFilterHandler,
     removeFilterHandler,
     filteredData,
-    handleExport,
     saveModalOpen,
     saveModalName,
     setSaveModalName,

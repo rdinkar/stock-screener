@@ -9,7 +9,7 @@ import type { SyntheticListenerMap } from "@dnd-kit/core/dist/hooks/utilities";
 /**
  * DraggableStockItem renders a draggable stock row for the watchlist.
  */
-interface DraggableStockItemProps {
+export interface DraggableStockItemProps {
   id: string;
   stock: {
     id: string;

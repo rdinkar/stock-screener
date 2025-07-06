@@ -1,15 +1,16 @@
 import React from "react";
 import { Tabs } from "antd";
 import ReactECharts from "echarts-for-react";
+import type { useStockDetail } from "../features/useStockDetail";
 
 /**
  * StockFinancialTrends displays quarterly and annual financial trends charts.
  */
-interface StockFinancialTrendsProps {
-  trendOption: (data: any[], type: "quarterly" | "annual") => object;
-  quarterly: any[];
-  annual: any[];
-}
+
+type StockFinancialTrendsProps = Pick<
+  ReturnType<typeof useStockDetail>,
+  "trendOption" | "quarterly" | "annual"
+>;
 
 const { TabPane } = Tabs;
 
@@ -18,8 +19,8 @@ const StockFinancialTrends: React.FC<StockFinancialTrendsProps> = ({
   quarterly,
   annual,
 }) => (
-  <div className="stock-detail-financials-chart">
-    <Tabs defaultActiveKey="quarterly" className="stock-detail-tabs">
+  <div className="flex-2 bg-white br-md p-lg">
+    <Tabs defaultActiveKey="quarterly" className="m-b-md">
       <TabPane tab="Quarterly" key="quarterly">
         <ReactECharts
           option={trendOption(quarterly, "quarterly")}

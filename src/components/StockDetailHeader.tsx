@@ -19,21 +19,25 @@ const StockDetailHeader: React.FC<StockDetailHeaderProps> = ({
   change,
   changePercent,
 }) => (
-  <div className="stock-detail-header">
-    <div className="stock-detail-title">
+  <div className="flex align-center justify-between m-b-xl space-bw gap-xl">
+    <h2 className="flex align-center gap-sm">
       {name} <Tag color="blue">{id}</Tag>
-    </div>
-    <div className="stock-detail-price">
+    </h2>
+    <div className="flex align-end gap-md">
       <Statistic
         title="Current Price"
         value={currentPrice}
         prefix="$"
         precision={2}
       />
-      <span className={change >= 0 ? "stock-up" : "stock-down"}>
+      <h3
+        className={`m-b-sm ${
+          change >= 0 ? "color-positive" : "color-negative"
+        }`}
+      >
         {change >= 0 ? "+" : ""}
         {change} ({changePercent}%)
-      </span>
+      </h3>
     </div>
   </div>
 );

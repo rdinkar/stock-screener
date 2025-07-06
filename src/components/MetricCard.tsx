@@ -19,6 +19,7 @@ interface MetricCardProps {
   suffix?: string;
   precision?: number;
   style?: React.CSSProperties;
+  className?: string;
 }
 
 const MetricCard: React.FC<MetricCardProps> = ({
@@ -28,19 +29,9 @@ const MetricCard: React.FC<MetricCardProps> = ({
   suffix,
   precision,
   style,
+  className,
 }) => (
-  <div
-    style={{
-      background: "#fff",
-      borderRadius: 8,
-      padding: 24,
-      boxShadow: "0 1px 4px rgba(0,0,0,0.04)",
-      display: "flex",
-      flexDirection: "column",
-      alignItems: "center",
-      ...style,
-    }}
-  >
+  <div className={`flex-col br-md bg-white p-lg ${className}`} style={style}>
     <Statistic
       title={title}
       value={value}

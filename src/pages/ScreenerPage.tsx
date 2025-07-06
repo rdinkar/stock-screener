@@ -1,5 +1,4 @@
 import React from "react";
-import "../styles/helper.css";
 import StockTable from "../components/StockTable";
 import ScreenerPresetsRow from "../components/ScreenerPresetsRow";
 import ScreenerFilters from "../components/ScreenerFilters";

@@ -1,5 +1,4 @@
 import React from "react";
-import "../styles/helper.css";
 import WatchlistSidebar from "../components/WatchlistSidebar";
 import WatchlistMainHeader from "../components/WatchlistMainHeader";
 import WatchlistStockList from "../components/WatchlistStockList";

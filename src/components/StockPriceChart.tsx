@@ -20,8 +20,8 @@ const StockPriceChart: React.FC<StockPriceChartProps> = ({
   timePeriods,
   priceOption,
 }) => (
-  <div className="stock-detail-chart-section">
-    <Tabs activeKey={period} onChange={setPeriod} className="stock-detail-tabs">
+  <div className="flex-2 bg-white br-md p-lg flex-col align-stretch">
+    <Tabs activeKey={period} onChange={setPeriod} className="m-b-md">
       {timePeriods.map((p) => (
         <TabPane tab={p.label} key={p.key} />
       ))}

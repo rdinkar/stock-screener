@@ -25,11 +25,7 @@ function Navigation() {
     <Menu
       theme="dark"
       mode="inline"
-      selectedKeys={[
-        location.pathname.startsWith("/stock/")
-          ? "/stock/:id"
-          : location.pathname,
-      ]}
+      selectedKeys={[location.pathname]}
       style={{ height: "calc(100% - 64px)", borderRight: 0 }}
     >
       <Menu.Item key="/dashboard" icon={<DashboardOutlined />}>

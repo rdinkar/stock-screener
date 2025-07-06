@@ -4,7 +4,7 @@
  * @param filters - The filter criteria array.
  * @returns The filtered array of stocks.
  */
-export function applyFilters<T extends Record<string, any>>(
+export function applyFilters<T extends Record<string, unknown>>(
   stocks: T[],
   filters: { metric: string; operator: string; value: number | undefined }[]
 ): T[] {

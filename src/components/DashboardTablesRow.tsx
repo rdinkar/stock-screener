@@ -19,9 +19,9 @@ const DashboardTablesRow: React.FC<DashboardTablesRowProps> = ({
   topLosers,
   mostActive,
 }) => (
-  <div className="dashboard-tables-row">
-    <div className="dashboard-table">
-      <div className="dashboard-table-title">Top Gainers</div>
+  <div className="flex gap-xl">
+    <div className="bg-white br-md p-lg flex-1 flex-col">
+      <h3>Top Gainers</h3>
       <StockTable
         columns={columns}
         data={topGainers}
@@ -29,8 +29,8 @@ const DashboardTablesRow: React.FC<DashboardTablesRowProps> = ({
         size="small"
       />
     </div>
-    <div className="dashboard-table">
-      <div className="dashboard-table-title">Top Losers</div>
+    <div className="bg-white br-md p-lg flex-1 flex-col">
+      <h3>Top Losers</h3>
       <StockTable
         columns={columns}
         data={topLosers}
@@ -38,8 +38,8 @@ const DashboardTablesRow: React.FC<DashboardTablesRowProps> = ({
         size="small"
       />
     </div>
-    <div className="dashboard-table">
-      <div className="dashboard-table-title">Most Active</div>
+    <div className="bg-white br-md p-lg flex-1 flex-col">
+      <h3>Most Active</h3>
       <StockTable
         columns={columns}
         data={mostActive}

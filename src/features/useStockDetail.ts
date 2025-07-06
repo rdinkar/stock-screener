@@ -15,11 +15,11 @@ export function useStockDetail() {
   const stock = mockData.stocks.find((s) => s.id === id);
   const historical =
     id && Object.prototype.hasOwnProperty.call(mockData.historical_data, id)
-      ? (mockData.historical_data as Record<string, any>)[id]
+      ? mockData.historical_data[id as keyof typeof mockData.historical_data]
       : undefined;
   const financials =
     id && Object.prototype.hasOwnProperty.call(mockData.financials, id)
-      ? (mockData.financials as Record<string, any>)[id]
+      ? mockData.financials[id as keyof typeof mockData.financials]
       : undefined;
 
   const [period, setPeriod] = useState("1M");
@@ -29,21 +29,13 @@ export function useStockDetail() {
     const periodObj = timePeriods.find((p) => p.key === period);
     if (!periodObj) return [];
     if (periodObj.dataKey === "daily") {
-      return (historical.daily as { date: string; close: number }[]).slice(
-        -periodObj.points
-      );
+      return historical.daily.slice(-periodObj.points);
     } else if (periodObj.dataKey === "weekly") {
-      return (historical.weekly as { date: string; close: number }[]).slice(
-        -periodObj.points
-      );
+      return historical.weekly.slice(-periodObj.points);
     } else if (periodObj.dataKey === "monthly") {
-      return (historical.monthly as { date: string; close: number }[]).slice(
-        -periodObj.points
-      );
+      return historical.monthly.slice(-periodObj.points);
     } else if (periodObj.dataKey === "yearly") {
-      return (historical.yearly as { date: string; close: number }[]).slice(
-        -periodObj.points
-      );
+      return historical.yearly.slice(-periodObj.points);
     }
     return [];
   }, [historical, period]);
@@ -97,27 +89,27 @@ export function useStockDetail() {
       type: "category",
       data:
         type === "quarterly"
-          ? (data as any[]).map((d) => d.date)
-          : (data as any[]).map((d) => d.year),
+          ? (data as typeof quarterly).map((d) => d.date)
+          : (data as typeof annual).map((d) => d.year),
     },
     yAxis: { type: "value" },
     series: [
       {
         name: "Revenue",
         type: "bar",
-        data: data.map((d: any) => d.revenue),
+        data: data.map((d) => d.revenue),
         color: "#1890ff",
       },
       {
         name: "Net Income",
         type: "bar",
-        data: data.map((d: any) => d.netIncome),
+        data: data.map((d) => d.netIncome),
         color: "#52c41a",
       },
       {
         name: "EPS",
         type: "line",
-        data: data.map((d: any) => d.eps),
+        data: data.map((d) => d.eps),
         color: "#faad14",
       },
     ],

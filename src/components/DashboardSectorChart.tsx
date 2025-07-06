@@ -11,7 +11,7 @@ interface DashboardSectorChartProps {
 const DashboardSectorChart: React.FC<DashboardSectorChartProps> = ({
   sectorOption,
 }) => (
-  <div className="dashboard-sector-chart">
+  <div className="bg-white br-md p-lg m-b-xl">
     <ReactECharts option={sectorOption} className="dashboard-sector-echart" />
   </div>
 );
