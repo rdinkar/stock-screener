@@ -1,6 +1,5 @@
 import React from "react";
-import { Tag } from "antd";
-import MetricCard from "./MetricCard";
+import { Statistic, Tag } from "antd";
 
 /**
  * StockDetailHeader displays the stock name, symbol, current price, and price change.
@@ -25,7 +24,7 @@ const StockDetailHeader: React.FC<StockDetailHeaderProps> = ({
       {name} <Tag color="blue">{id}</Tag>
     </div>
     <div className="stock-detail-price">
-      <MetricCard
+      <Statistic
         title="Current Price"
         value={currentPrice}
         prefix="$"
