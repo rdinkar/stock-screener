@@ -29,7 +29,7 @@ const WatchlistPage: React.FC = () => {
   } = useWatchlistHandlers();
 
   return (
-    <div className="watchlist-container">
+    <div className="flex flex-1 gap-xl p-xl bg-gray h-100 over-auto">
       <WatchlistSidebar
         watchlists={watchlists}
         selected={selected}
@@ -38,7 +38,7 @@ const WatchlistPage: React.FC = () => {
         onEdit={openEdit}
         onDelete={handleDelete}
       />
-      <div className="watchlist-main">
+      <div className="flex-1 bg-white br-md p-lg flex flex-col min-w-0">
         <WatchlistMainHeader
           name={selectedWl?.name || ""}
           alerts={!!selectedWl?.alerts}

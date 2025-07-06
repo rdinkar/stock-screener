@@ -17,7 +17,6 @@ import {
   UnorderedListOutlined,
 } from "@ant-design/icons";
 import "antd/dist/reset.css";
-import "./styles/App.css";
 
 function Navigation() {
   const location = useLocation();

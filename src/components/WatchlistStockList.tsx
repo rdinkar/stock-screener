@@ -26,7 +26,7 @@ const WatchlistStockList: React.FC<WatchlistStockListProps> = ({
 }) => (
   <DndContext sensors={sensors} onDragEnd={onDragEnd}>
     <SortableContext items={stockIds} strategy={verticalListSortingStrategy}>
-      <div className="watchlist-stock-list">
+      <div className="flex flex-col gap-md">
         {stockIds.map((id) => (
           <DraggableStockItem key={id} id={id} stock={stocksMap[id]} />
         ))}

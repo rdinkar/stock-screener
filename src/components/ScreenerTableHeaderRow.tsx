@@ -12,8 +12,8 @@ interface ScreenerTableHeaderRowProps {
 const ScreenerTableHeaderRow: React.FC<ScreenerTableHeaderRowProps> = ({
   onExport,
 }) => (
-  <div className="screener-table-header-row">
-    <span className="screener-table-title">Results</span>
+  <div className="flex align-center space-bw m-b-md gap-md">
+    <h4 className="m-b-0">Results</h4>
     <Button icon={<DownloadOutlined />} onClick={onExport} size="small">
       Export
     </Button>

@@ -23,9 +23,9 @@ const ScreenerPresetsRow: React.FC<ScreenerPresetsRowProps> = ({
   onLoad,
   onSave,
 }) => (
-  <div className="screener-presets-row">
-    <span className="screener-presets-label">Presets:</span>
-    <Space size="small">
+  <div className="flex align-center gap-md m-b-md flex-wrap">
+    <h4 className="m-b-0">Presets:</h4>
+    <div className="flex gap-md">
       {presets.map((p) => (
         <Button
           key={p.id}
@@ -36,10 +36,10 @@ const ScreenerPresetsRow: React.FC<ScreenerPresetsRowProps> = ({
           {p.name}
         </Button>
       ))}
-    </Space>
-    <div style={{ flex: 1 }} />
+    </div>
+    <div className="flex-1" />
     <Select
-      style={{ width: 180, marginRight: 12 }}
+      style={{ width: 180, marginRight: 10 }}
       placeholder="Load Saved"
       value={selectedSavedConfig}
       onChange={onLoad}

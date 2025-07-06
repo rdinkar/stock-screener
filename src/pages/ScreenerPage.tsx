@@ -7,9 +7,6 @@ import ScreenerTableHeaderRow from "../components/ScreenerTableHeaderRow";
 import { getScreenerColumns } from "../utils/screenerColumns";
 import { useScreenerHandlers } from "../features/useScreenerHandlers";
 
-/**
- * ScreenerPage provides a tool for filtering, sorting, and exporting stock data with customizable criteria and presets.
- */
 const columns = getScreenerColumns();
 
 const ScreenerPage: React.FC = () => {
@@ -53,8 +50,8 @@ const ScreenerPage: React.FC = () => {
   };
 
   return (
-    <div className="screener-container">
-      <div className="screener-filters">
+    <div className="flex-col gap-xl p-xl bg-gray flex-1 h-100 over-auto">
+      <div className="bg-white br-md p-lg flex-col gap-md">
         <ScreenerPresetsRow
           presets={presets}
           selectedPreset={selectedPreset}
@@ -73,7 +70,7 @@ const ScreenerPage: React.FC = () => {
           onRemove={removeFilterHandler}
         />
       </div>
-      <div className="screener-table">
+      <div className="bg-white br-md p-md">
         <ScreenerTableHeaderRow onExport={handleExport} />
         <StockTable
           columns={columns}

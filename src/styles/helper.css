@@ -63,6 +63,10 @@
   border-radius: 15px;
 }
 
+.m-b-0 {
+  margin-bottom: 0;
+}
+
 .m-b-sm {
   margin-bottom: 5px;
 }
@@ -122,4 +126,13 @@
 .grid-2-col {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
+}
+.bg-blue {
+  background: #e6f7ff;
+}
+.cursor-pointer {
+  cursor: pointer;
+}
+.cursor-grab {
+  cursor: grab;
 }

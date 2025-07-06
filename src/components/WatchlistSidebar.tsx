@@ -22,8 +22,11 @@ const WatchlistSidebar: React.FC<WatchlistSidebarProps> = ({
   onEdit,
   onDelete,
 }) => (
-  <div className="watchlist-sidebar">
-    <div className="watchlist-header">Watchlists</div>
+  <div
+    className="flex-col gap-md bg-white br-md p-lg"
+    style={{ minWidth: 250 }}
+  >
+    <h3 className="m-b-md">Watchlists</h3>
     <Button
       type="primary"
       icon={<PlusOutlined />}
@@ -33,12 +36,12 @@ const WatchlistSidebar: React.FC<WatchlistSidebarProps> = ({
     >
       Add
     </Button>
-    <div className="watchlist-list">
+    <div className="flex-col gap-sm over-auto flex-1">
       {watchlists.map((wl) => (
         <div
           key={wl.id}
-          className={`watchlist-list-item${
-            selected === wl.id ? " selected" : ""
+          className={`flex align-center space-bw bg-gray br-sm p-md cursor-pointer${
+            selected === wl.id ? " bg-blue" : ""
           }`}
           onClick={() => onSelect(wl.id)}
         >

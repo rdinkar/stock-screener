@@ -20,9 +20,9 @@ const WatchlistMainHeader: React.FC<WatchlistMainHeaderProps> = ({
   onAlertToggle,
   onAlertNoteChange,
 }) => (
-  <div className="watchlist-main-header">
-    <span className="watchlist-main-title">{name}</span>
-    <span style={{ marginLeft: 16 }}>
+  <div className="flex align-center gap-md m-b-lg flex-wrap">
+    <h3 className="m-b-0">{name}</h3>
+    <span style={{ marginLeft: 15 }}>
       <BellOutlined /> Alerts
       <Switch
         checked={alerts}

@@ -44,12 +44,14 @@ const DraggableStockItem: React.FC<DraggableStockItemProps> = ({
   return (
     <div
       ref={setNodeRef}
-      className={`watchlist-stock-item${isDragging ? " dragging" : ""}`}
+      className={`flex align-center gap-lg bg-white br-md p-lg cursor-pointer${
+        isDragging ? " shadow-lg bg-blue-100" : ""
+      }`}
       style={style}
       onClick={() => navigate(`/stock/${id}`)}
     >
       <span
-        className="watchlist-stock-drag"
+        className="color-gray fs-md m-r-sm cursor-grab flex align-center"
         {...(listeners as SyntheticListenerMap)}
         {...attributes}
         onClick={(e) => e.stopPropagation()}
@@ -57,17 +59,17 @@ const DraggableStockItem: React.FC<DraggableStockItemProps> = ({
         <MenuOutlined />
       </span>
       <Tag color="blue">{stock.id}</Tag>
-      <span className="watchlist-stock-name">{stock.name}</span>
-      <span className="watchlist-stock-metric">${stock.currentPrice}</span>
+      <span className="fw-500 flex-1 min-w-xs">{stock.name}</span>
+      <span className="fs-md min-w-xs text-right">${stock.currentPrice}</span>
       <span
-        className={`watchlist-stock-metric ${
+        className={`fs-md min-w-xs text-right ${
           stock.change >= 0 ? "stock-up" : "stock-down"
         }`}
       >
         {stock.change >= 0 ? "+" : ""}
         {stock.change} ({stock.changePercent}%)
       </span>
-      <span className="watchlist-stock-metric">Vol: {stock.volume}</span>
+      <span className="fs-md min-w-xs text-right">Vol: {stock.volume}</span>
     </div>
   );
 };

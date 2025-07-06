@@ -28,7 +28,7 @@ const ScreenerFilters: React.FC<ScreenerFiltersProps> = ({
 }) => (
   <>
     {filters.map((f, idx) => (
-      <div className="screener-filter-row" key={idx}>
+      <div className="flex align-center gap-sm m-b-sm flex-wrap" key={idx}>
         <Select
           style={{ width: 160, marginRight: 8 }}
           placeholder="Metric"
